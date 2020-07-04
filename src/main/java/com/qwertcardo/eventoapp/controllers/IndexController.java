@@ -1,4 +1,4 @@
-package com.qwertcardo.eventoapp;
+package com.qwertcardo.eventoapp.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
