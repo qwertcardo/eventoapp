@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html xnlns:th="www.http://thymeeaf.org"
-	xnlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="www.http://thymeeaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>EventosApp</title>
+	<title>EventosApp</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" href="style/styleCss.css"/>
+
 </head>
 <body>
-	<h1>Lista de Eventos</h1>
-	<h3><a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Eventos</a></h3>
+	<header>
+		<nav>
+		    <div class="nav-wrapper">
+		      <a href="#" class="brand-logo">Lista de Eventos</a>
+		      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Eventos</a></li>
+		      </ul>
+		    </div>
+	  	</nav>
+	</header>
 	
 	<table class="container">
 		<thead>
@@ -20,6 +30,7 @@
 				<th>Horario</th>
 			</tr>
 		</thead>
+		
 		<tbody>
 			<tr th:each="evento : ${eventos}">
 				<td><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}"><span th:text="${evento.nome}"></span></a></td>
@@ -28,7 +39,9 @@
 				<td><span th:text="${evento.horario}"></span></td>
 			</tr>
 		</tbody>
+		
 	</table>
+	
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
 </html>
